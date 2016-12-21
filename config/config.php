@@ -4,12 +4,12 @@ return [
     /*
      * The disk where images a stored
      */
-    'source' => 'images',
+    'source' => 'public',
 
     /**
      * The disk where images cache is stored
      */
-    'cache' => 'glide',
+    'cache' => 'public',
 
     /**
      * Cache directory prefix
@@ -23,7 +23,7 @@ return [
         /**
          * The url of the route
          */
-        'url' => 'api/images',
+        'url' => 'images',
 
         /**
          * The name of the route
