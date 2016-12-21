@@ -28,7 +28,7 @@ Now, images loaded as follow will have a width of 150 px and a rotation of 90°
 
     Image::url('/path/to/image/in/storage', 'small');
     
-In the config file you can find a default shortcut to defined default transformations:
+In the config file you can find a default shortcut to define default transformations:
 
     'shortcuts' => [
         'default' => [
