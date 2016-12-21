@@ -20,7 +20,7 @@ Laravel-image provide a way to create shortcuts in the config file:
     'shortcuts' => [
         'small' => [
             'w'  => '150',
-            'or' => '90'
+            'or' => '90',
         ]
     ]
     
@@ -34,11 +34,11 @@ In the config file you can find a default shortcut to define default transformat
 
     'shortcuts' => [
         'default' => [
-            'w' => '300'
-            'h' => '300'
+            'w' => '300',
+            'h' => '300',
         ]
         'small' => [
             'w'  => '150',
-            'or' => '90'
+            'or' => '90',
         ]
     ]
