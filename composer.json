@@ -1,0 +1,15 @@
+{
+    "name": "siliace/laravel-image",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "league/glide": "^1.2",
+        "illuminate/support": "^5.3",
+        "league/glide-laravel": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Siliace\\LaravelImage\\": "src/"
+        }
+    }
+}
