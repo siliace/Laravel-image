@@ -2,6 +2,7 @@
 
 namespace Siliace\LaravelImage;
 
+use InvalidArgumentException;
 use Illuminate\Contracts\Foundation\Application;
 
 class ImageUrlGenerator
@@ -13,16 +14,24 @@ class ImageUrlGenerator
         $this->app = $app;
     }
 
-    public function url($path, array $modifiers = [])
+    public function url($path, $modifiers = 'default')
     {
-        $config = '';
-
-        foreach ($modifiers as $modifier => $value) {
-            $config .= $modifier . '-' . $value . '/';
+        if (is_string($modifiers)) {
+            $modifiers = config('images.shortcuts.' . $modifiers) ?: [];
         }
 
-        $config = trim($config, '/');
+        if (is_array($modifiers)) {
+            $config = '';
 
-        return route('image.show', ['path' => $path, 'config' => $config]);
+            foreach ($modifiers as $modifier => $value) {
+                $config .= $modifier . '-' . $value . '/';
+            }
+
+            $config = trim($config, '/');
+
+            return route(config('images.route.name'), ['path' => $path, 'config' => $config]);
+        }
+
+        throw new InvalidArgumentException('Modifiers are either a string (see config.shortcut) or an array');
     }
 }

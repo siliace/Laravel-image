@@ -7,6 +7,10 @@ class ImageServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        $this->publishes([
+            __DIR__ . '/../config/config.php' => config_path('images.php')
+        ]);
+
         $this->app->bind('Image', function($app) {
             return new ImageUrlGenerator($app);
         });
@@ -14,8 +18,8 @@ class ImageServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->app['router']->get('api/images/{path}/{config?}', 'Siliace\\LaravelImage\ImageController@show')
-            ->name('image.show')
+        $this->app['router']->get(config('images.route.url') . '/{path}/{config?}', config('images.route.action'))
+            ->name(config('images.route.name'))
             ->where('path', '([a-z\/]+)([a-z0-9\-]+.(png|jpg|jpeg))')
             ->where('config', '.*');
     }
