@@ -27,7 +27,9 @@ Laravel-image provide a way to create shortcuts in the config file:
 Now, images loaded as follow will have a width of 150 px and a rotation of 90°
 
     Image::url('/path/to/image/in/storage', 'small');
-    
+
+#Default transformations
+
 In the config file you can find a default shortcut to define default transformations:
 
     'shortcuts' => [
