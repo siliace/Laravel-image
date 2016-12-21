@@ -8,8 +8,10 @@ class ImageServiceProvider extends ServiceProvider
     public function register()
     {
         $this->publishes([
-            __DIR__ . '/../config/config.php' => config_path('images.php')
+            __DIR__ . '/../config/images.php' => config_path('images.php')
         ]);
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/images.php', 'images');
 
         $this->app->bind('Image', function($app) {
             return new ImageUrlGenerator($app);
