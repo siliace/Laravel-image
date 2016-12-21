@@ -9,9 +9,9 @@ An easy to use image loader for Laravel
 
 #Configuration
 
-source: The disk where images are stored (public by default)
-cache: The disk where cache is stored (public by default)
-cache_path_prefix: The name of the glide cache directory
+    source: The disk where images are stored (public by default)
+    cache: The disk where cache is stored (public by default)
+    cache_path_prefix: The name of the glide cache directory
 
 #Shortcuts
 
