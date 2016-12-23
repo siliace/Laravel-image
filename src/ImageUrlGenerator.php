@@ -2,6 +2,7 @@
 
 namespace Siliace\LaravelImage;
 
+use Storage;
 use InvalidArgumentException;
 use Illuminate\Contracts\Foundation\Application;
 
@@ -33,5 +34,10 @@ class ImageUrlGenerator
         }
 
         throw new InvalidArgumentException('Modifiers are either a string (see config.shortcut) or an array');
+    }
+
+    public function flushCache($path = '')
+    {
+        return Storage::disk(config('images.cache'))->deleteDirectory(config('images.cache_path_prefix') . '/' . $path);
     }
 }
