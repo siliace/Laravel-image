@@ -22,7 +22,7 @@ class ImageServiceProvider extends ServiceProvider
     {
         $this->app['router']->get(config('images.route.url') . '/{path}/{config?}', config('images.route.action'))
             ->name(config('images.route.name'))
-            ->where('path', '([a-z\/]+)([a-z0-9\-]+.(png|jpg|jpeg))')
+            ->where('path', config('images.route.path_pattern'))
             ->where('config', '.*');
     }
 }

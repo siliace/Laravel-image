@@ -33,12 +33,17 @@ return [
         /**
          * The closure to call to get an image
          */
-        'action' => 'Siliace\\LaravelImage\ImageController@show'
+        'action' => 'Siliace\\LaravelImage\ImageController@show',
+
+        /**
+         * The pattern of the path to the image
+         */
+        'path_pattern' => '([a-zA-Z0-9\/]+)([a-zA-Z0-9]+.(png|jpg|jpeg))'
     ],
 
     'shortcuts' => [
         'default' => [
 
         ]
-    ]
+    ],
 ];
